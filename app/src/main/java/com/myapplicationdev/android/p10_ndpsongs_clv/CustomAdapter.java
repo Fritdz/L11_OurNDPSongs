@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,15 +41,15 @@ public class CustomAdapter extends ArrayAdapter {
 
         TextView tvTitle = rowView.findViewById(R.id.tvTitle);
         TextView tvYear = rowView.findViewById(R.id.tvYear);
-        TextView tvStars = rowView.findViewById(R.id.tvStars);
         TextView tvSinger = rowView.findViewById(R.id.tvSinger);
         ImageView imgView = rowView.findViewById(R.id.imageView);
+        RatingBar rbStars = rowView.findViewById(R.id.ratingBar);
 
         Song currentSong = songList.get(position);
 
         tvTitle.setText((currentSong.getTitle()));
         tvYear.setText(currentSong.YeartoString());
-        tvStars.setText(currentSong.StarstoString());
+        rbStars.setRating(currentSong.getStars());
         tvSinger.setText(currentSong.getSingers());
 
         if (currentSong.getYearReleased()>=2019){
